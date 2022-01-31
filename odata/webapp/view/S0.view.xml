@@ -1,0 +1,49 @@
+<mvc:View xmlns:form="sap.ui.layout.form" controllerName="odata.controller.S0"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Shell id="shell">
+        <App id="app">
+            <pages>
+                <Page id="page" title="{i18n>title}">
+                    <content>
+
+                        <Panel id="_IDGenPanel1" headerText="Products detail">
+                            <form:SimpleForm id="_IDGenSimpleForm1" layout="ResponsiveGridLayout">
+                                <Text id="_IDGenText1" text="Product"/>
+                                <Label id="_IDGenLabel1" text="ID"/>
+                                <Input id="_IDGenInput1" value="{modelControl>/valueInputID}"/>
+                                <Label id="_IDGenLabel2" text="Name"/>
+                                <Input id="_IDGenInput2" value="{modelControl>/valueInputName}"/>
+                                <Label id="_IDGenLabel3" text="Description"/>
+                                <Input id="_IDGenInput3" value="{modelControl>/valueInputDescription}"/>
+                                <Label id="_IDGenLabel4" text="Price"/>
+                                <Input id="_IDGenInput4" value="{modelControl>/valueInputPrice}"/>
+                            </form:SimpleForm>
+                        </Panel>
+
+                        <Panel id="_IDGenPanel2" headerText="List products">
+                            <SearchField id="_IDGenSearchField1" value="{modelControl>/valueSearchField}" search="onSearch"/>
+                            <List id="listProducts" mode="Delete" delete="onDeleteProducts" items="{modelDefault>/Products}" itemPress="onItemPress">
+                                <items>
+                                    <StandardListItem type="Active" id="_IDGenStandardListItem1" title="{modelDefault>ID}" description="{modelDefault>Name}" info="{modelDefault>Price}"/>
+                                </items>
+                            </List>
+                        </Panel>
+
+                    </content>
+
+                    <footer>
+                        <Bar id="_IDGenBar1" busy="{modelControl>/busyBar}">
+                            <contentLeft>
+                                <Button id="_IDGenButton1" text="Create products" press="onCreateProducts"/>
+                            </contentLeft>
+                            <contentMiddle>
+                                <Button id="_IDGenButton2" text="Update products" press="onUpdateProducts"/>
+                            </contentMiddle>
+                        </Bar>
+                    </footer>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>
